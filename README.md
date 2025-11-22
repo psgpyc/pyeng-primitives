@@ -1,8 +1,8 @@
 # pyeng-primitives
 
-A collection of small, framework-level Python classes that model the behaviours and invariants commonly found in modern data engineering pipelines.
+A collection of small, framework-quality Python classes that model the behaviours and invariants commonly found in modern data engineering pipelines.
 
-This repository is my personal lab for learning how to design **clean, correct, and composable Python abstractions** using the Python Data Model:
+This repository is my personal lab for learning how to design clean, correct, and composable Python abstractions using the Python Data Model:
 
 - `__getitem__`
 - `__iter__`
@@ -14,7 +14,7 @@ This repository is my personal lab for learning how to design **clean, correct, 
 - schema enforcement
 - invariant preservation
 
-The goal is to practise writing Python **the way real data platforms do** (Pandas, Polars, Spark, Flink, internal FAANG libraries).
+The goal is to practise writing Python **the way real data platforms do** (Pandas, Polars, Spark, Flink).
 
 Each primitive is fully tested with `pytest`.
 
