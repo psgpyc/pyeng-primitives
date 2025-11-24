@@ -41,7 +41,7 @@ Run tests via:
 
 ```bash
 pytest -q
-
+```
 
 ## AI Assistance Notice
 
