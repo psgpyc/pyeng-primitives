@@ -108,6 +108,40 @@ class WindowBatch():
     def __iter__(self) -> Iterator[dict[str, Any]]:
         return iter(self._rows)
     
+    # ---------------------------- Dunder Methods ----------------------------------
+    
+    def __repr__(self) -> str:
+        total_rows = len(self._rows)
+        display_rows = 2
 
+        columns_ = ", ".join([each for each in self._schema])
+        rows_ = "\n  " + "\n  ".join([str(each) for each in self._rows[:display_rows]])
+
+        display_text = f"WindowBatch(start={self._window_start}, end={self._window_end}, rows={total_rows} ,cols=[{columns_}])[{rows_}"
+
+        if total_rows > display_rows:
+            trailing_text = '\n' + f'  ... ({total_rows-display_rows} more rows)' + '\n]'
+            display_text += trailing_text
+        else:
+            display_text += '\n]'
+        return display_text
         
+
+schema = ("timestamp", "user_id", "value")
+
+rows = [
+    {"timestamp": 1700000010, "user_id": "u1", "value": 10},
+    {"timestamp": 1700000100, "user_id": "u2", "value": 15},
+    {"timestamp": 1700000100, "user_id": "u2", "value": 15}
+]
+
+wb = WindowBatch(
+    rows=rows,
+    window_start=1700000000,
+    window_end=1700000600,
+    schema=schema,
+    strict_order=True
+)
+
+print(wb)
 
